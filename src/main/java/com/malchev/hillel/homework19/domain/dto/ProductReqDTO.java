@@ -1,10 +1,11 @@
 package com.malchev.hillel.homework19.domain.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class ProductReqDTO {
-    private String productId;
     private String name;
     private Long cost;
 }
