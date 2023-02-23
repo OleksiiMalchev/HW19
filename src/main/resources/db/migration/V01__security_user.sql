@@ -11,4 +11,4 @@ CREATE TABLE users (
 
 INSERT INTO product (name,cost) value("book",100), ("pencil",20),("pen",10);
 
-INSERT INTO users(name,password,role) value("user1","user1","USER"),("user2","user2","USER"),("admin","admin","USER,ADMIN");
+INSERT INTO users(name,password,role) value("user1","user1","ROLE_USER"),("user2","user2","ROLE_USER"),("admin","admin","ROLE_ADMIN");

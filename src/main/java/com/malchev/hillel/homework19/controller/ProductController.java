@@ -17,7 +17,7 @@ import java.util.Optional;
 public class ProductController {
     private final ProductService productService;
 
-    @PreAuthorize("USER")
+
     @GetMapping("/products")
     public ResponseEntity<? super List<ProductRespDTO>> getProducts() {
         List<ProductRespDTO> products = productService.getProducts();
@@ -46,6 +46,15 @@ public class ProductController {
             return ResponseEntity.status(201).body(product);
         } else {
             return new ResponseEntity<>("Product not create. No action taken.", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/products/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable("id") String productId) {
+        if (productService.deleteProduct(productId)) {
+            return new ResponseEntity<String>("Delete Response", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Product not found. No action taken.", HttpStatus.NO_CONTENT);
         }
     }
 }
